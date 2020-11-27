@@ -1,7 +1,7 @@
 //-----MODULES
 const login = require('fca-unofficial')
 const puppeteer = require('puppeteer')
-const translate = require('translate-google')
+const translatte = require('translatte')
 const fs = require('fs')
 
 
@@ -73,9 +73,9 @@ login({ appState: JSON.parse(fs.readFileSync('appstate.json', 'utf8')) }, (err, 
 
                 case 'translate':
                     api.sendTypingIndicator(yourID)
-                    translate(restStr, { from: 'en', to: args[1] }).then(res => {
-                        api.sendMessage(res, yourID)
-                        console.log(typeof res)
+                    translatte(restStr, { to: args[1] }).then(res => {
+                        api.sendMessage(res.text, yourID)
+                        console.log(typeof res.text)
                     }).catch(err => {
                         console.error(err)
                         api.sendMessage('something went wrong, sorry...')
