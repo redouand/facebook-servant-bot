@@ -1,6 +1,7 @@
 //-----MODULES
 const login = require('fca-unofficial')
 const puppeteer = require('puppeteer')
+const translate = require('translate-google')
 const fs = require('fs')
 
 
@@ -25,6 +26,7 @@ launch()
 
 
 // var credentials = { email: "theomurf47@gmail.com", password: "forceLogin" };
+// const credentials = { email: 'hhpdmua_thurnsky_1606478026@tfbnw.net', password: '1t1bw29ru5i' }
 
 
 //----Variabls
@@ -43,6 +45,7 @@ login({ appState: JSON.parse(fs.readFileSync('appstate.json', 'utf8')) }, (err, 
             const yourID = message.threadID
 
             let args = body.substring(PREFIX.length).split(' ')
+            let restStr = args.slice(1).join(' ')
 
 
 
@@ -55,18 +58,28 @@ login({ appState: JSON.parse(fs.readFileSync('appstate.json', 'utf8')) }, (err, 
 
 
                 case 'google':
-                    await imageSearch(browser, args[1])
-                    const msg = {
-                        attachment: fs.createReadStream(__dirname + `/${args[1]}.png`)
-                    }
                     api.sendTypingIndicator(yourID)
+                    await imageSearch(browser, restStr)
+                    const msg = {
+                        attachment: fs.createReadStream(__dirname + `/${restStr}.png`)
+                    }
                     api.sendMessage(msg, yourID);
-                    fs.unlink(__dirname + `/${args[1]}.png`, (err) => {
+                    fs.unlink(__dirname + `/${restStr}.png`, (err) => {
                         if (err) throw err
                         console.log('deleted succusfully!');
                     })
                     console.log(`on it's way!...`);
                     break;
+
+                case 'translate':
+                    api.sendTypingIndicator(yourID)
+                    translate(restStr, { from: 'en', to: args[1] }).then(res => {
+                        api.sendMessage(res, yourID)
+                        console.log(typeof res)
+                    }).catch(err => {
+                        console.error(err)
+                        api.sendMessage('something went wrong, sorry...')
+                    })
                 default:
                     break;
             }
