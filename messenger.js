@@ -26,13 +26,14 @@ launch()
 
 
 
+
 //----Variabls
 const PREFIX = '!'
 
 
 
 //-----LOGIN
-login({ email: `thoemurf47@gmail.com`, password: 'botsAreCool47' }, (err, api) => {
+login({ email: `theomurf47@gmail.com`, password: 'botServant47' }, (err, api) => {
     if (err) return console.error(err);
 
 
