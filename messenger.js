@@ -24,7 +24,7 @@ async function launch() {
 launch()
 
 
-
+// var credentials = { email: "theomurf47@gmail.com", password: "forceLogin" };
 
 
 //----Variabls
@@ -33,9 +33,8 @@ const PREFIX = '!'
 
 
 //-----LOGIN
-login({ email: `theomurf47@gmail.com`, password: 'botServant47' }, (err, api) => {
+login({ appState: JSON.parse(fs.readFileSync('appstate.json', 'utf8')) }, (err, api) => {
     if (err) return console.error(err);
-
 
     api.listen(async (err, message) => {
         if (err) return console.error(err.message);
