@@ -32,7 +32,7 @@ const PREFIX = '!'
 
 
 //-----LOGIN
-login({ email: `hhpdmua_thurnsky_1606478026@tfbnw.net`, password: '2e03blbugbi' }, (err, api) => {
+login({ email: `thoemurf47@gmail.com`, password: 'botsAreCool47' }, (err, api) => {
     if (err) return console.error(err);
 
 
