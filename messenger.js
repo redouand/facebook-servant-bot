@@ -15,7 +15,7 @@ let browser = null
 let page = null;
 async function launch() {
     try {
-        browser = await puppeteer.launch({ headless: true, defaultViewport: null })
+        browser = await puppeteer.launch({ headless: true, defaultViewport: null, args: ['--no-sandbox'] })
         page = await browser.newPage()
     } catch (error) {
         console.log(error.message);
