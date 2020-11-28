@@ -2,7 +2,7 @@
 const login = require('fca-unofficial')
 const puppeteer = require('puppeteer')
 const translatte = require('translatte')
-const cleverbot = require("cleverbot-free");
+// const cleverbot = require("cleverbot-free");
 const fs = require('fs')
 
 
@@ -47,15 +47,15 @@ login({ appState: JSON.parse(fs.readFileSync('appstate.json', 'utf8')) }, (err, 
 
             let args = body.substring(PREFIX.length).split(' ')
             let restStr = args.slice(1).join(' ')
-            let keyword = body.charAt(0)
 
-            if (keyword !== '!') {
-                api.sendTypingIndicator(yourID)
-                cleverbot(body).then(res => {
-                    console.log(res);
-                    api.sendMessage(res, yourID)
-                }).catch(err => console.log(err.message))
-            }
+            // let keyword = body.charAt(0)
+            // if (keyword !== '!') {
+            //     api.sendTypingIndicator(yourID)
+            //     cleverbot(body).then(res => {
+            //         console.log(res);
+            //         api.sendMessage(res, yourID)
+            //     }).catch(err => console.log(err.message))
+            // }
 
 
             switch (args[0]) {
