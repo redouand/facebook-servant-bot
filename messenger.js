@@ -31,6 +31,7 @@ launch()
 
 // var credentials = { email: "theomurf47@gmail.com", password: "forceLogin" };
 // const credentials = { email: 'hhpdmua_thurnsky_1606478026@tfbnw.net', password: '9cnzlh696gs' }
+const credentials = { email: 'redlovesmoviesYO@gmail.com', password: 'redlovesmoviesYO47' }
 
 
 //----Variabls
@@ -39,7 +40,8 @@ const PREFIX = '!'
 
 
 //-----LOGIN
-login({ appState: JSON.parse(fs.readFileSync('appstate.json', 'utf8')) }, (err, api) => {
+//{ appState: JSON.parse(fs.readFileSync('appstate.json', 'utf8')) }
+login(credentials, (err, api) => {
     if (err) return console.error(err);
 
     api.listen(async (err, message) => {
