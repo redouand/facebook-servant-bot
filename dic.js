@@ -24,7 +24,7 @@ async function dicFunc(browser, page, term) {
             return document.querySelector('div[class="def ddef_d db"]').innerText
         })
 
-        return `DEFINITION OF "${term}": ${def}`
+        return `${def}`
     } catch (error) {
         console.log(error.message);
     }
