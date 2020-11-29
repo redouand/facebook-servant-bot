@@ -151,7 +151,8 @@ clever-Bot: ${newAdmin.clever}.
                                 api.sendTypingIndicator(yourID)
                                 translatte(restStr, { to: args[1] }).then(res => {
                                     setTimeout(() => {
-                                        api.sendMessage(res.text.split(' ').slice(1).join(' '), yourID)
+                                        //split(' ').slice(1).join(' ')
+                                        api.sendMessage(res.text, yourID)
                                     }, 3000);
                                 }).catch(err => {
                                     setTimeout(() => {
