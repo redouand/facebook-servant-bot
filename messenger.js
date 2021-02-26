@@ -31,7 +31,7 @@ launch()
 
 // var credentials = { email: "theomurf47@gmail.com", password: "forceLogin" };
 // const credentials = { email: 'hhpdmua_thurnsky_1606478026@tfbnw.net', password: '9cnzlh696gs' }
-const credentials = { email: 'redlovesmoviesYO@gmail.com', password: 'redlovesmoviesYO47' }
+const credentials = { email: 'redlovesmoviesYO@gmail.com', password: 'newlife47' }
 
 
 //----Variabls
